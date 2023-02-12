@@ -93,4 +93,4 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "ghcr.io/zubee-max/app-py:main" | xargs -I {} cosign sign {}@sha256:15cf644b9608225f88353089436270dfa68ac98986d35556c31d44bb469da916
+        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
