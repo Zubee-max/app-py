@@ -57,7 +57,7 @@ jobs:
       #  java-version: 1.8
 
     - name: Scan with SonarQube
-      uses: SonarSource/sonarqube-scan-action@v1.2.0
+      uses: sonarsource/sonarqube-scan-action@master
       with:
         sonar-token: ${{ env.SONAR_TOKEN }}
         sonar-host-url: ${{ env. SONAR_HOST_URL }}
