@@ -28,7 +28,7 @@
       
       
       
-name: SonarQube Scan
+name: SonarQube Scanner
 
 on:
   push:
@@ -37,6 +37,7 @@ on:
 
 env:
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
 jobs:
   build:
@@ -59,4 +60,5 @@ jobs:
       uses: SonarSource/sonarqube-scan-action@v1.2.0
       with:
         sonar-token: ${{ env.SONAR_TOKEN }}
+        sonar-host-url: ${{ env. SONAR_HOST_URL }}
         repository-path: repository
