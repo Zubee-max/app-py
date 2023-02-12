@@ -56,9 +56,9 @@ jobs:
       #with:
       #  java-version: 1.8
 
-    - name: Scan with SonarQube
-      uses: sonarsource/sonarqube-scan-action@master
-      with:
-        sonar-token: ${{ env.SONAR_TOKEN }}
-        sonar-host-url: ${{ env. SONAR_HOST_URL }}
-        repository-path: repository
+   # - name: Scan with SonarQube
+    #  uses: sonarsource/sonarqube-scan-action@master
+   #   with:
+    #    sonar-token: ${{ env.SONAR_TOKEN }}
+      #  sonar-host-url: ${{ env. SONAR_HOST_URL }}
+      #  repository-path: repository
