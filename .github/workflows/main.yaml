@@ -1,5 +1,5 @@
 
-name: SonarQube Scan
+name: Build Sonar Project
 on:
   push:
     branches:
@@ -11,18 +11,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ env.GITHUB_SHA }}
-        repository: ${{ env.GITHUB_REPOSITORY }}
-        path: repository
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 
+      - uses: sonarsource/sonarqube-scan-action@master  
+      
+      - name: "Example show SonarQube Quality Gate Status value"
+        run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gaye-status }}"
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3.10.0
-      with:
-        java-version: 11.0.18+10
-        distribution: temurin
+    #- name: Set up JDK
+    #  uses: actions/setup-java@v3.10.0
+     # with:
+     #   java-version: 11.0.18+10
+     #   distribution: temurin
     #- name: Set up JDK
      # uses: actions/setup-java@v3.10.0
       #with:
